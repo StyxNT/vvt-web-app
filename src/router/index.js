@@ -31,12 +31,12 @@ const routes = [
         children:[
             {
                 path:'/addActivity',
-                name:'选项一',
+                name:'添加活动',
                 component: AddActivity
             },
             {
                 path:'/manageActivity',
-                name:'选项二',
+                name:'管理我的活动',
                 component: ManageActivity
             }
         ]

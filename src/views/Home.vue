@@ -25,7 +25,7 @@
       <el-container>
 
         <el-aside width="200px">
-          <el-menu router>
+          <el-menu router :default-openeds="openeds">
 
             <el-submenu
                 :index="item.path"
@@ -75,8 +75,10 @@ export default {
   name: "Home",
   data() {
     return {
-      user: JSON.parse(window.sessionStorage.getItem('user'))
+      user: JSON.parse(window.sessionStorage.getItem('user')),
+      openeds:['/home']
     }
+
   },
   computed: {
     activeMenus: function (){
