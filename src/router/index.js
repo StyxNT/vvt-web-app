@@ -2,9 +2,10 @@ import Vue from 'vue';
 import VueRouter from "vue-router";
 import Login from "@/views/Login";
 import Home from "@/views/Home";
-import AddActivity from "@/views/teacher/activity/AddActivity";
-import ManageActivity from "@/views/teacher/activity/ManageActivity";
+import AddActivity from "@/views/teacher/AddActivity";
+import ManageActivity from "@/views/teacher/ManageActivity";
 import Register from "@/views/Register";
+import TeamManager from "@/views/teacher/TeamManager";
 
 Vue.use(VueRouter);
 
@@ -24,7 +25,7 @@ const routes = [
         role:"logout"
     },
     {
-        name:'活动管理',
+        name:'教师端功能',
         path:'/home',
         component: Home,
         role:'ROLE_teacher',
@@ -38,15 +39,15 @@ const routes = [
                 path:'/manageActivity',
                 name:'管理我的活动',
                 component: ManageActivity
+            },
+            {
+                path:'/teamManager',
+                name:'管理我的小队',
+                component: TeamManager
             }
         ]
     },
-    {
-        name:'小队管理',
-        path:'/home',
-        component: Home,
 
-    }
 ]
 
 const router=new VueRouter(
