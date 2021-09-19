@@ -29,6 +29,10 @@ axios.interceptors.response.use(success=>{
         if(success.data.code===500||success.data.code===401||success.data.code===403){
             //success.data.message自己定义的后端返回数据
             Message.error({message:success.data.message});
+            if(success.data.code===401){
+                window.localStorage.removeItem('token');
+                router.replace("/");
+            }
             return;
         }
         //如果正确，这判断有无返回信息，有则输出
@@ -46,6 +50,7 @@ axios.interceptors.response.use(success=>{
         Message.error({message:"权限不足"});
     }else if(error.response.code===401){
         Message.error({message:"尚未登录，请登录"});
+        window.localStorage.removeItem('token');
         router.replace("/")
     }else{
         if(error.response.data.message){
